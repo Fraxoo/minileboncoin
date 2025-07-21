@@ -1,5 +1,10 @@
 <?php
+session_start();
 
+$user = 'minileboncoin';
+$pass = 'userjohnhardy';
+
+$bdd = new PDO('mysql:host=localhost:3306;dbname=john-hardy_minileboncoin',$user,$pass);
 
 
 
