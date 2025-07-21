@@ -29,7 +29,7 @@ $photos = lire_dossier();
 
 <header>
 
-    <a class="acceuil" href="index.php">MiniLeboncoin</a>
+    <a class="acceuil" href="index.php"><h1>MiniLeboncoin</h1></a>
     <a class="add" href="adddelete.php">Ajoutez / Supprimer un produit</a>
     <form action="/" method="post">
     <input class="bar" type="search" placeholder="rechercher un produit"><input class="loupe" type="image" src="imgsites/search.png"">

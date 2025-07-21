@@ -4,6 +4,73 @@
     font-family: "Nunito Sans", sans-serif;
 }
 
-.body{
+body{
+    display: flex;
+    flex-direction: column;
     height: 100vh;
+    gap: 10rem;
+}
+
+header{
+    display: flex;
+    justify-content: center;
+    box-shadow: 0px 0px 10px gray;
+}
+
+header a{
+    text-decoration: none;
+    color: #f07b42;
+    font-size: 1.5rem;
+    padding: 1rem;
+    
+}
+
+h1{
+    font-weight: 900;
+}
+
+main{
+    display: flex;
+    justify-content: center;
+}
+
+.all{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.bold{
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+
+.formulaire{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.mail {
+    padding: 0.4rem;
+    border-radius: 10px;
+    border: 1px gray solid;
+}
+
+.boutton{
+    background-color: #f07b42;
+    color: white;
+    border: none;
+    padding: 0.4rem;
+    border-radius: 10px;
+    margin-top: 1rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.none{
+    font-size: 1.15rem;
 }
