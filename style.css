@@ -37,7 +37,7 @@ header form{
 }
 
 header .loupe{
-    background-color: #f07b42;
+    background-color: #ff6e14;
     height: 1rem;
     width: 1rem;
     padding: 0.5rem;
@@ -50,24 +50,36 @@ header .loupe{
 }
 
 .acceuil {
-    color: #f07b42;
+    color: #ff6e14;
     font-size: 1.5rem;
     font-weight: bold;
 }
 
+.acceuil :hover{
+    color: #f07b42;
+}
+
 .add{
     color: white;
-    background-color: #f07b42;
+    background-color: #ff6e14;
     padding: 1rem;
     border-radius: 5rem;
     font-size: 1rem;
     font-weight: bold;
 }
 
+.add:hover{
+    background-color: #f07b42;
+}
+
 .login{
-    color: #f07b42;
+    color: #ff6e14;
     font-weight: bold;
     font-size: 1.4rem;
+}
+
+.login:hover{
+    color: #f07b42;
 }
 
 main{

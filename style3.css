@@ -19,11 +19,16 @@ header{
 
 header a{
     text-decoration: none;
-    color: #f07b42;
+    color: #ff6e14;
     font-size: 1.5rem;
     padding: 1rem;
     
 }
+
+header a:hover{
+    color: #f07b42;
+}
+
 
 h1{
     font-weight: 900;

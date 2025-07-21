@@ -32,22 +32,19 @@
 
     <main>
 
-    <div class="add">
-        <h2>Voulez vous ajoutez une annonce ? :</h2>
-        <a href="add.php">Ajoutez une annonce</a>
+        <div class="add">
+            <h2>Voulez vous ajoutez une annonce ? :</h2>
+            <form action="adddelete.php" method="post" enctype="multipart/form-data">
+                <p>Photo :</p>
+                <input class="files" type="file" id="files" name="produit"  required>
+                <p>Description de l'annonce :</p>
+                <input type="text" name="description" required>
+                <p>Prix de l'article :</p>
+                <input class="prix" type="number" name="price" required>
+                <button>Ajoutez Produit</button>
+            </form>
 
-    </div>
-
-    <div class="remove">
-        <h2>Voulez vous supprimez une annonce ? :</h2>
-        <a href="remove.php">Retirer annonce</a>
-
-    </div>
-
-
-
-
-
+        </div>
 
     </main>
 

@@ -35,9 +35,12 @@
             <p class="bold">Connectez-vous a votre compte:</p>
 
             <form action="/" method="post">
-                <p>E-mail*</p>
+                
                 <div class="formulaire">
+                    <p>E-mail*</p>
                     <input class="mail" type="email" name="email" required>
+                    <p>Mot de passe*</p>
+                    <input class="mail" type="password" name="password" required>
                     <button class="boutton">Continuer</button>
                 </div>
             </form>

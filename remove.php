@@ -32,22 +32,14 @@
 
     <main>
 
-    <div class="add">
-        <h2>Voulez vous ajoutez une annonce ? :</h2>
-        <a href="add.php">Ajoutez une annonce</a>
-
-    </div>
-
     <div class="remove">
         <h2>Voulez vous supprimez une annonce ? :</h2>
-        <a href="remove.php">Retirer annonce</a>
+        <form action="adddelete.php" method="post" enctype="multipart/form-data">
+            <input type="text" name="produitdel" placeholder="    produit a supprimer :" required>   
+            <button>Supprimer Produit</button>
+        </form>
 
     </div>
-
-
-
-
-
 
     </main>
 
