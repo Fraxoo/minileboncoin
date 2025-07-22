@@ -1,11 +1,26 @@
 <?php
 session_start();
 
-
 $user = 'root';
 $pass = 'root';
 
-$bdd = new PDO('mysql:host=127.0.0.1;dbname=minileboncoin',$user,$pass);
+$bdd = new PDO('mysql:host=127.0.0.1;dbname=minileboncoin', $user, $pass);
+
+$nom = $_POST['nom'];
+$description = $_POST['description'];
+$prix = $_POST['prix'];
+$photos = $_FILES['photos'];
+
+if(isset($nom,$photos,$description,$prix)){
+    $addproduit = $bdd->prepare('INSERT INTO produit (nom,description,prix,photos) VALUES (:nom,:description,:prix,:photos)');
+    $addproduit->execute([
+        'nom'=>$nom,
+        'description'=>$description,
+        'prix'=>$prix,
+        'photos'=>$photos
+    ]);
+};
+
 
 
 ?>
@@ -39,13 +54,15 @@ $bdd = new PDO('mysql:host=127.0.0.1;dbname=minileboncoin',$user,$pass);
 
         <div class="add">
             <h2>Voulez vous ajoutez une annonce ? :</h2>
-            <form action="adddelete.php" method="post" enctype="multipart/form-data">
+            <form action="add.php" method="post" enctype="multipart/form-data">
+                <p>Produit :</p>
+                    <input type="text" name="nom" required>
                 <p>Photo :</p>
-                <input class="files" type="file" id="files" name="produit"  required>
+                    <input class="files" type="file" id="files" name="photos" required>
                 <p>Description de l'annonce :</p>
-                <input type="text" name="description" required>
+                    <input type="text" name="description" required>
                 <p>Prix de l'article :</p>
-                <input class="prix" type="number" name="price" required>
+                    <input class="prix" type="number" name="prix" required>
                 <button>Ajoutez Produit</button>
             </form>
 

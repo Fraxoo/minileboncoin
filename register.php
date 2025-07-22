@@ -9,6 +9,7 @@ $bdd = new PDO('mysql:host=127.0.0.1;dbname=minileboncoin', $user, $pass);
 
 $email = $_POST['email'];
 $password = $_POST['password'];
+$passwordhash = password_hash($password,PASSWORD_BCRYPT);
 $nom = $_POST['nom'];
 $prenom = $_POST['prenom'];
 
@@ -31,7 +32,7 @@ if (isset($email, $password, $nom, $prenom)) {
             $addcomptes = $bdd->prepare('INSERT INTO compte (email,password,nom,prenom) VALUES (:email,:password,:nom,:prenom)');
             $addcomptes->execute([
                 'email' => $email,
-                'password' => $password,
+                'password' => $passwordhash,
                 'nom' => $nom,
                 'prenom' => $prenom
             ]);

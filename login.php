@@ -7,6 +7,28 @@ $pass = 'root';
 
 $bdd = new PDO('mysql:host=127.0.0.1;dbname=minileboncoin',$user,$pass);
 
+$email = $_POST['email'];
+$password = $_POST['password'];
+
+if(isset($email,$password)){
+    $verifcompte = $bdd->prepare('SELECT * FROM compte WHERE email = :email');
+    $verifcompte->execute([
+        'email'=>$email
+    ]);
+
+    $usercompte = $verifcompte->fetch(pdo::FETCH_ASSOC);
+
+ if ($usercompte && password_verify($password,$usercompte['password'])) {
+        $_SESSION['id'] = $usercompte['id'];
+        $_SESSION['prenom'] = $usercompte['prenom'];
+        header("Location: index.php");
+        exit();
+    } else {
+        $erreur = "Email ou mot de passe incorrect";
+    }
+}
+
+
 
 ?>
 
@@ -39,13 +61,14 @@ $bdd = new PDO('mysql:host=127.0.0.1;dbname=minileboncoin',$user,$pass);
         <div class="all">
             <p class="bold">Connectez-vous a votre compte:</p>
 
-            <form action="/" method="post">
+            <form action="login.php" method="post">
                 
                 <div class="formulaire">
                     <p>E-mail*</p>
                     <input class="mail" type="email" name="email" required>
                     <p>Mot de passe*</p>
                     <input class="mail" type="password" name="password" required>
+                    <?= $erreur ?>
                     <button class="boutton">Continuer</button>
                 </div>
             </form>

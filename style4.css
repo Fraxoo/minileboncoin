@@ -4,11 +4,37 @@
     font-family: "Nunito Sans", sans-serif;
 }
 
+button{
+    cursor: pointer;
+}
+
 body{
     display: flex;
     flex-direction: column;
     height: 100vh;
     gap: 14rem;
+}
+
+.login{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    font-size: 1.5rem;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.login a{
+    padding: 1rem 5rem;
+    background-color: #ff6e14;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.5rem;
+    width: fit-content;
+    border-radius: 3rem;
 }
 
 

@@ -4,11 +4,12 @@ session_start();
 $user = 'root';
 $pass = 'root';
 
-$bdd = new PDO('mysql:host=127.0.0.1;dbname=minileboncoin',$user,$pass);
+$bdd = new PDO('mysql:host=127.0.0.1;dbname=minileboncoin', $user, $pass);
 
-function lire_dossier(){
+function lire_dossier()
+{
     $files = scandir('post');
-    return array_diff($files,['.','..','/']);
+    return array_diff($files, ['.', '..', '/']);
 }
 
 $photos = lire_dossier();
@@ -33,27 +34,36 @@ $photos = lire_dossier();
 
 <body>
 
-<header>
+    <header>
 
-    <a class="acceuil" href="index.php"><h1>MiniLeboncoin</h1></a>
-    <a class="add" href="adddelete.php">Ajoutez / Supprimer un produit</a>
-    <form action="/" method="post">
-    <input class="bar" type="search" placeholder="rechercher un produit"><input class="loupe" type="image" src="imgsites/search.png"">
-    </form>
-    <a class="login" href="login.php">Se Connecter</a>
+        <a class="acceuil" href="index.php">
+            <h1>MiniLeboncoin</h1>
+        </a>
 
-</header>
+        <a class="add" href="adddelete.php">Ajoutez / Supprimer un produit</a>
 
-<main>
+        <form action="/" method="post">
+            <input class="bar" type="search" placeholder="rechercher un produit"><input class="loupe" type="image" src="imgsites/search.png"">
+        </form>
 
-    <?php foreach($photos as $photo): ?>
-        <div class="post">
-            <img src="post/<?= $photo ?>" alt="$photo">
-            <p><?= $photo ?></p>
-        </div>
-    <?php endforeach ?>
+        <?php if (!isset($_SESSION['id'])): ?>
+            <a class=" login" href="login.php">Se Connecter</a>
+        <?php else : ?>
+            <a class="login" href="logout.php">Se Deconnecter</a>
+        <?php endif ?>
 
-</main>
+    </header>
+
+    <main>
+
+        <?php foreach ($photos as $photo): ?>
+            <div class="post">
+                <img src="post/<?= $photo ?>" alt="$photo">
+                <p><?= $photo ?></p>
+            </div>
+        <?php endforeach ?>
+
+    </main>
 
 
 

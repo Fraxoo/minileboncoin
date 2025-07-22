@@ -38,17 +38,25 @@ $bdd = new PDO('mysql:host=127.0.0.1;dbname=minileboncoin',$user,$pass);
 
     <main>
 
+    <?php if(isset($_SESSION['id'])) : ?>
     <div class="add">
         <h2>Voulez vous ajoutez une annonce ? :</h2>
         <a href="add.php">Ajoutez une annonce</a>
 
     </div>
-
+    
     <div class="remove">
         <h2>Voulez vous supprimez une annonce ? :</h2>
         <a href="remove.php">Retirer une annonce</a>
 
     </div>
+
+    <?php else : ?>
+        <div class="login">
+             <p>Veuillez vous connecter pour poster une annonce</p>
+             <a href="login.php">Connexion</a>
+        </div>
+    <?php endif ?>
 
 
 
