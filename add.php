@@ -9,17 +9,22 @@ $bdd = new PDO('mysql:host=127.0.0.1;dbname=minileboncoin', $user, $pass);
 $nom = $_POST['nom'];
 $description = $_POST['description'];
 $prix = $_POST['prix'];
-$photos = $_FILES['photos'];
+$photos = $_FILES['photos']['name'];
+$chemintmp = $_FILES['photos']['tmp_name'];
+
 
 if(isset($nom,$photos,$description,$prix)){
-    $addproduit = $bdd->prepare('INSERT INTO produit (nom,description,prix,photos) VALUES (:nom,:description,:prix,:photos)');
+    $addproduit = $bdd->prepare('INSERT INTO produit (nom,description,prix,photos,idcompte) VALUES (:nom,:description,:prix,:photos,:idcompte)');
     $addproduit->execute([
         'nom'=>$nom,
         'description'=>$description,
         'prix'=>$prix,
-        'photos'=>$photos
+        'photos'=>$photos,
+        'idcompte'=>$_SESSION['id']
     ]);
+    move_uploaded_file($chemintmp,'post/' .$photos);
 };
+
 
 
 

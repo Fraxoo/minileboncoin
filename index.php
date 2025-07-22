@@ -14,6 +14,12 @@ function lire_dossier()
 
 $photos = lire_dossier();
 
+$bddphotos = $bdd->prepare('SELECT * FROM produit');
+$bddphotos->execute();
+$bddphoto = $bddphotos->fetchall();
+
+
+
 
 ?>
 
@@ -56,12 +62,22 @@ $photos = lire_dossier();
 
     <main>
 
+
+        
         <?php foreach ($photos as $photo): ?>
+            <?php foreach($bddphoto as $produit): ?>
+                <?php if($produit['photos'] == $photo) :?>
             <div class="post">
-                <img src="post/<?= $photo ?>" alt="$photo">
-                <p><?= $photo ?></p>
+                <img src="post/<?= ($produit['photos']) ?>" alt="<?= ($produit['nom']) ?>">
+                    <p>produit: <?= ($produit['nom']) ?></p>
+                    <p>Description: <?= ($produit['description']) ?></p>
+                    <p>Prix :<?= ($produit['prix']) ?> €</p>
+                    <p>Publier par : <?= $_SESSION['prenom'] ?></p>
+                
             </div>
-        <?php endforeach ?>
+            <?php endif ?>
+            <?php endforeach ?>
+            <?php endforeach ?>
 
     </main>
 

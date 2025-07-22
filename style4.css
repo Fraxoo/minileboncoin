@@ -8,6 +8,18 @@ button{
     cursor: pointer;
 }
 
+.produit{
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+}
+
+.tout{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
 body{
     display: flex;
     flex-direction: column;

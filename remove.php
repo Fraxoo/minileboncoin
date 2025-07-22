@@ -7,6 +7,18 @@ $pass = 'root';
 
 $bdd = new PDO('mysql:host=127.0.0.1;dbname=minileboncoin',$user,$pass);
 
+$bddphotos = $bdd->prepare('SELECT * FROM produit');
+$bddphotos->execute();
+$bddphoto = $bddphotos->fetchall();
+
+$nom = $_POST['nom'];
+
+if(isset($nom)){
+$delbdd = $bdd->prepare('DELETE FROM compte WHERE nom = :nom ');
+$delbdd->execute([
+    'nom'=>$nom
+]);
+}
 
 ?>
 
@@ -37,15 +49,26 @@ $bdd = new PDO('mysql:host=127.0.0.1;dbname=minileboncoin',$user,$pass);
 
     <main>
 
+    <div class="tout">
+
+
+    <div class="produit">
+        <p>Liste de vos annonce :</p>
+    <?php foreach($bddphoto as $produit): ?>
+        <?= $produit['nom'] ?>
+    <?php endforeach ?>
+    </div>
+
+
     <div class="remove">
         <h2>Voulez vous supprimez une annonce ? :</h2>
-        <form action="adddelete.php" method="post" enctype="multipart/form-data">
-            <input type="text" name="produitdel" placeholder="    produit a supprimer :" required>   
+        <form action="remove.php" method="post" enctype="multipart/form-data">
+            <input type="text" name="nom" placeholder="    produit a supprimer :" required>   
             <button>Supprimer Produit</button>
         </form>
 
     </div>
-
+    </div>
     </main>
 
 </body>

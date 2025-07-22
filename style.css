@@ -83,20 +83,22 @@ header .loupe{
 }
 
 main{
-    margin: 2rem;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 2rem;
-    grid-template-columns : repeat(auto-fit, minmax(250px, 1fr))
+    display: flex;
+    flex-wrap: wrap;
+    margin: 4rem;
+    gap: 3rem;
+    align-items: baseline;
+    
 }
 
 .post{
-    
-    height: 30rem;
+
+    width: 20rem;
+    word-wrap: break-word;
 }
 
 .post img{
-    
     width: 100%;
     height: 100%;
+    
 }
