@@ -46,7 +46,7 @@ $bdd = new PDO('mysql:host=127.0.0.1;dbname=minileboncoin',$user,$pass);
 
     <div class="remove">
         <h2>Voulez vous supprimez une annonce ? :</h2>
-        <a href="remove.php">Retirer annonce</a>
+        <a href="remove.php">Retirer une annonce</a>
 
     </div>
 

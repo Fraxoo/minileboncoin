@@ -59,6 +59,11 @@ main{
 
 }
 
+.red{
+    color: red;
+    font-size: 20px;
+}
+
 .input {
     padding: 0.4rem;
     border-radius: 10px;
