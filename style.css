@@ -59,6 +59,21 @@ header .loupe{
     color: #f07b42;
 }
 
+.hauteur{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.rien{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   text-align: center;
+   font-size: 2rem;
+}
+
 .add{
     color: white;
     background-color: #ff6e14;
@@ -82,14 +97,17 @@ header .loupe{
     color: #f07b42;
 }
 
-main{
+.product{
     display: flex;
     flex-wrap: wrap;
     margin: 4rem;
     gap: 3rem;
     align-items: baseline;
+    height: 100vh;
     
 }
+
+
 
 .post{
 

@@ -63,21 +63,33 @@ $bddphoto = $bddphotos->fetchall();
     <main>
 
 
-        
-        <?php foreach ($photos as $photo): ?>
-            <?php foreach($bddphoto as $produit): ?>
-                <?php if($produit['photos'] == $photo) :?>
-            <div class="post">
-                <img src="post/<?= ($produit['photos']) ?>" alt="<?= ($produit['nom']) ?>">
-                    <p>produit: <?= ($produit['nom']) ?></p>
-                    <p>Description: <?= ($produit['description']) ?></p>
-                    <p>Prix :<?= ($produit['prix']) ?> €</p>
-                    <p>Publier par : <?= $_SESSION['prenom'] ?></p>
-                
+
+        <?php if (count($photos) > 0): ?>
+            <?php foreach ($photos as $photo): ?>
+                <?php foreach ($bddphoto as $produit): ?>
+                    <?php if ($produit['photos'] == $photo) : ?>
+                        <div class="product">
+                            <div class="post">
+                                <img src="post/<?= ($produit['photos']) ?>" alt="<?= ($produit['nom']) ?>">
+                                <p>produit: <?= ($produit['nom']) ?></p>
+                                <p>Description: <?= ($produit['description']) ?></p>
+                                <p>Prix :<?= ($produit['prix']) ?> €</p>
+                                <p>Publier par : <?= $_SESSION['prenom'] ?></p>
+
+                            </div>
+                        </div>
+
+
+                    <?php endif ?>
+                <?php endforeach ?>
+            <?php endforeach ?>
+        <?php else : ?>
+            <div class="hauteur">
+                <div class="rien">
+                    <p>Aucune annonce en ligne actuellement soyez le premier a en mettre une ! <a href="adddelete.php">Ajoutez</a></p>
+                </div>
             </div>
-            <?php endif ?>
-            <?php endforeach ?>
-            <?php endforeach ?>
+        <?php endif ?>
 
     </main>
 
